@@ -43,7 +43,7 @@ def dictionaries():
   assert d['age'] == 21  # KeyError if missing
   assert d.get('absent_key', 'default_value') == 'default_value'
   d['age'] = 25
-  d['absent_key'] = '???'
+  d['absent_key'] = 3 # No KeyError for unknown key
   d.update({'tel' : 12345, 'family' : 'Smith'})  # Or d |= {...}
   del d['family']  # KeyError if missing
   
@@ -87,7 +87,7 @@ def printing():
 printing()
   
 def new_syntax():
-  if (length := len("abcd")) > 4:
+  if (length := len("walrus")) > 4:
     assert True
   status = "OK"
   match status:
