@@ -1,0 +1,29 @@
+name: Project CI
+
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # --- Python Section ---
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Python Syntax Check
+        run: python -m py_compile python3.py
+
+      - name: Run Python script
+        run: python python3.py
+
+      # --- C++ Section ---
+      - name: Compile C++ Cheatsheet
+        run: g++ -std=c++20 -Wall -o cpp_app cpp.cpp
+
+      - name: Run C++ Cheatsheet
+        run: ./cpp_app
