@@ -81,9 +81,9 @@ void map_basic() {
     assert(iter->second == 10);
   }
   {
-    auto [iter, success] = m.insert_or_assign(1, 10);
+    auto [iter, success] = m.insert_or_assign(1, 100);
     assert(!success);  // False because it assigned/overwritten.
-    assert(iter->second == 10);  // Value is overwritten.
+    assert(iter->second == 100);  // Value is overwritten.
   }
   
   {
