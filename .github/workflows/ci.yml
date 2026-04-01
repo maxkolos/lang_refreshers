@@ -27,3 +27,9 @@ jobs:
 
       - name: Run C++ Cheatsheet
         run: ./cpp_app
+
+      - name: Compile C++ Concurrency Cheatsheet
+        run: g++ -std=c++20 -Wall -o cpp_concur_app cpp_concur.cpp
+
+      - name: Run C++ Cheatsheet
+        run: ./cpp_concur_app
